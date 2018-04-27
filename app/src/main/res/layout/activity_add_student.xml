@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jpeng.teacherapp.AddStudent">
+
+
+    <TextView
+        android:id="@+id/txtStdName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="41dp"
+        android:text="Student Name:"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/etStudentName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtStdName"
+        android:layout_alignBottom="@+id/txtStdName"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="20sp"
+        android:layout_marginRight="20sp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/txtStdID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/etStudentID"
+        android:layout_alignBottom="@+id/etStudentID"
+        android:layout_alignLeft="@+id/txtStdName"
+        android:layout_alignStart="@+id/txtStdName"
+        android:text="Student ID:"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/etStudentID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/etStudentName"
+        android:layout_alignRight="@+id/etStudentName"
+        android:layout_below="@+id/etStudentName"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Student ID" />
+
+    <TextView
+        android:id="@+id/txtCourse1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtStdID"
+        android:layout_alignStart="@+id/txtStdID"
+        android:layout_below="@+id/etStudentID"
+        android:layout_marginTop="43dp"
+        android:text="Course 1:"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/etCourse1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtCourse1"
+        android:layout_alignBottom="@+id/txtCourse1"
+        android:layout_alignLeft="@+id/etStudentID"
+        android:layout_alignStart="@+id/etStudentID"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Course 1 Name" />
+
+    <TextView
+        android:id="@+id/txtCourse2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtCourse1"
+        android:layout_alignStart="@+id/txtCourse1"
+        android:layout_below="@+id/etCourse1"
+        android:layout_marginTop="42dp"
+        android:text="Course 2:"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/etCourse2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtCourse2"
+        android:layout_alignBottom="@+id/txtCourse2"
+        android:layout_alignLeft="@+id/etCourse1"
+        android:layout_alignStart="@+id/etCourse1"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Course 2 Name" />
+
+    <Button
+        android:id="@+id/btnAddInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/holo_blue_light"
+        android:text="Add " />
+
+</RelativeLayout>
