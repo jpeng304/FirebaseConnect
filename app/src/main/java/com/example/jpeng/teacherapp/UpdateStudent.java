@@ -41,13 +41,17 @@ public class UpdateStudent extends AppCompatActivity {
 
         studentListView = (ListView)findViewById(R.id.stdlistview);
         btnReturn = (Button) findViewById(R.id.btnReturn);
+
+        //Get the instance and reference of the child
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference().child("studentInfo");
+
+        //Store the value from Firebase to a generic arraylist
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // loops through all children in exercises table
+                // loops through all children in studentInfo table
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
 
                     Student get_Info = new Student();
@@ -59,6 +63,7 @@ public class UpdateStudent extends AppCompatActivity {
                     clubkey.add(ds.getKey());
                     getStudent.add(get_Info);
                 }
+                //set listview to adapter
                 createStudentlist();
             }
 
@@ -68,6 +73,8 @@ public class UpdateStudent extends AppCompatActivity {
             }
         });
 
+
+        //when one of the listview item is pressed, pass the key and studentid to the next activity
         studentListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -93,6 +100,8 @@ public class UpdateStudent extends AppCompatActivity {
             }
         });
     }
+
+    //set the listview with the Sadapter
     private void createStudentlist() {
         Sadapter = new ListStudentInfo(this, getStudent);
         studentListView.setAdapter(Sadapter);

@@ -46,6 +46,9 @@ public class Update_Info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_student);
 
+        //Get the key of the object and the student id
+        //that user wanted to look at after pressing the listview item
+        //passed from the previous activity
         Intent intent = getIntent();
         post_key = intent.getExtras().getString("keyString");
         student_id = intent.getExtras().getString("studentid");
@@ -59,6 +62,7 @@ public class Update_Info extends AppCompatActivity {
         btnRemove = (Button) findViewById(R.id.btnRemove);
         btnCancel = (Button) findViewById(R.id.btnCancel);
 
+        //declare instance and reference to the child of the root wanted to look at
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference().child("studentInfo");
@@ -66,7 +70,8 @@ public class Update_Info extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // loops through all children in exercises table
+                // loops through all children in studentInfo to get the
+                // one student info that we want by checking with student ID
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Student check_user = new Student();
                     check_user.setStudent_ID(ds.getValue(Student.class).getStudent_ID());
@@ -82,6 +87,7 @@ public class Update_Info extends AppCompatActivity {
                     }
 
                 }
+                //set student info onto the UI
                 setStudentlist();
             }
             @Override
@@ -90,6 +96,7 @@ public class Update_Info extends AppCompatActivity {
             }
         });
 
+        //Update the key in the child when UPdate button is clicked
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,8 +109,8 @@ public class Update_Info extends AppCompatActivity {
                 if(stdName.isEmpty() || stdID.isEmpty() || courseName1.isEmpty() || courseName2.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "All fields must have text", Toast.LENGTH_SHORT).show();
                 } else {
-
                     Student info = new Student(stdName,stdID,courseName1,courseName2);
+                    //Changed the value of the chosen key
                     myRef.child(post_key).setValue(info);
                     Intent intent = new Intent(Update_Info.this, UpdateStudent.class);
                     startActivity(intent);
@@ -111,6 +118,7 @@ public class Update_Info extends AppCompatActivity {
             }
         });
 
+        //Remove the chosen key and its value in the child
         btnRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,6 +128,7 @@ public class Update_Info extends AppCompatActivity {
             }
         });
 
+        //Cancel any changes and back to the listview
         btnCancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -130,6 +139,7 @@ public class Update_Info extends AppCompatActivity {
     }
 
 
+    //set the student info onto the UI
     private void setStudentlist(){
         etname.setText(getStudnetInfo.get(0).getStudent_name().toString());
         etID.setText(getStudnetInfo.get(0).getStudent_ID().toString());

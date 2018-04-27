@@ -35,6 +35,7 @@ public class AccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
         mAuth = FirebaseAuth.getInstance();
+        //If user is null then go back to the login screen
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -55,22 +56,10 @@ public class AccountActivity extends AppCompatActivity {
         btnsignout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Sign out the login
                 mAuth.signOut();
-                // Google sign out
-                //Try it
-                Log.d("SIGNOUT", "YAY1");
+                //sign out Google
                 mailSignout();
-
-                // Google revoke access
-                /*
-                mGoogleSignInClient.revokeAccess().addOnCompleteListener(this,
-                        new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                updateUI(null);
-                            }
-                        });*/
-
             }
         });
 
@@ -100,11 +89,8 @@ public class AccountActivity extends AppCompatActivity {
     }
 
     private void mailSignout(){
-
-        //Try the one below and comment the one above if it wont work
-        //Auth.GoogleSignInApi.signOut(mGoogleApiClient);
-        Log.d("SIGNOUT", "YAY2");
-        // Google sign out
+        // Google sign out, so user can choose other account when
+        //logging back in
         mGoogleSignInClient.signOut().addOnCompleteListener(this,
                 new OnCompleteListener<Void>() {
                     @Override

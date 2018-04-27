@@ -58,6 +58,9 @@ public class AddStudent extends AppCompatActivity {
                 String courseName1 = etCourse1.getText().toString();
                 String courseName2 = etCourse2.getText().toString();
 
+                //Check if every text is filled.
+                //If not then it will output message.
+                //If everything is filled, then push the object into the Firebase
                 if(stdName.isEmpty() || stdID.isEmpty() || courseName1.isEmpty() || courseName2.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "All fields must have text", Toast.LENGTH_SHORT).show();
                 } else {

@@ -54,17 +54,13 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-
-
-
-
         signinbutton = (SignInButton) findViewById(R.id.sign_in_button);
+        // Configure Google Sign In
+        //Integrate Google Sign-In into your app
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
-
-        Log.d("GSO", gso.toString());
 
         mGoogleApiClient = new GoogleApiClient.Builder(getApplicationContext())
                 .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
@@ -75,9 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
-
-
-
 
 
         signinbutton.setOnClickListener(new View.OnClickListener(){
@@ -108,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
             if(result.isSuccess()){
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
-                //statusTextView.setText("Hello " + acct.getDisplayName());
             }
             else{
 
