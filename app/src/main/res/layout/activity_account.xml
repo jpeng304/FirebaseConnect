@@ -33,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="15dp" />
 
+
         <Button
             android:id="@+id/btnUpdate"
             android:layout_width="match_parent"
@@ -45,6 +46,40 @@
             android:textColor="@android:color/white"
             android:textSize="30dp"
             android:text="Update Student Info" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <Button
+            android:id="@+id/btnPayPalPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/holo_orange_light"
+            android:textColor="@android:color/white"
+            android:textSize="30dp"
+            android:text="Pay Pal" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <Button
+            android:id="@+id/btnQRScanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/holo_orange_light"
+            android:textColor="@android:color/white"
+            android:textSize="30dp"
+            android:text="QR Scanner" />
 
         <Space
             android:layout_width="match_parent"

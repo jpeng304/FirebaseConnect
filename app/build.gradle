@@ -4,11 +4,13 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.example.jpeng.teacherapp"
-        minSdkVersion 15
+        //changed from 15 to 16 since paypal sdk won't work api after 16
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -19,6 +21,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.paypal.sdk:paypal-android-sdk:2.15.3'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
@@ -31,6 +34,7 @@ dependencies {
     compile 'com.google.firebase:firebase-database:12.0.1'
     compile 'com.google.firebase:firebase-auth:12.0.1'
     compile 'com.google.android.gms:play-services-auth:12.0.1'
+    compile 'com.google.android.gms:play-services:12.0.1'
 }
 
 apply plugin: 'com.google.gms.google-services'

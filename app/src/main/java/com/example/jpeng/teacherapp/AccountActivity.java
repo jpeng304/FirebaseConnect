@@ -26,6 +26,8 @@ public class AccountActivity extends AppCompatActivity {
     private Button btnsignout;
     private Button btnAdd;
     private Button btnUpdate;
+    private Button btnPay;
+    private Button btnAttendance;
     private FirebaseAuth mAuth;
     private GoogleApiClient mGoogleApiClient;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -78,6 +80,24 @@ public class AccountActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AccountActivity.this, UpdateStudent.class);
                 startActivity(intent);
+            }
+        });
+
+        btnAttendance = (Button) findViewById(R.id.btnQRScanner);
+        btnAttendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AccountActivity.this, QRscannerAttendance.class);
+                startActivity(intent);
+            }
+        });
+        btnPay = (Button) findViewById(R.id.btnPayPalPage);
+        btnPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AccountActivity.this, PayPalFunction.class);
+                startActivity(intent);
+
             }
         });
     }
